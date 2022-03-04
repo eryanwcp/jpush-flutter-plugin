@@ -345,33 +345,29 @@ class LocalNotification {
   final int? id;
   final String? title;
   final String? content;
-  final Map<String, String>? extra; //?
-  final DateTime? fireTime;
+  final Map<String, dynamic>? extra; //?
+  final DateTime fireTime;
   final int? badge; //?
   final String? soundName; //?
   final String? subtitle; //?
 
   const LocalNotification(
-      {@required this.id,
-      @required this.title,
-      @required this.content,
-      @required this.fireTime,
+      {required this.id,
+      required this.title,
+      required this.content,
+      required this.fireTime,
       this.buildId,
       this.extra,
       this.badge = 0,
       this.soundName,
       this.subtitle})
-      : assert(id != null),
-        assert(title != null),
-        assert(content != null),
-        assert(fireTime != null);
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'id': id,
       'title': title,
       'content': content,
-      'fireTime': fireTime?.millisecondsSinceEpoch,
+      'fireTime': fireTime.millisecondsSinceEpoch,
       'buildId': buildId,
       'extra': extra,
       'badge': badge,
