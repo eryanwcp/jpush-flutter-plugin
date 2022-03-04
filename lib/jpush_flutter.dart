@@ -342,8 +342,8 @@ class NotificationSettingsIOS {
 /// @property {string} [subtitle] - 子标题
 class LocalNotification {
   final int? buildId; //?
-  final int? id;
-  final String? title;
+  final int id;
+  final String title;
   final String content;
   final Map<String, dynamic>? extra; //?
   final DateTime fireTime;
