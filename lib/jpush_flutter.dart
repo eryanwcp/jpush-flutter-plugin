@@ -351,7 +351,7 @@ class LocalNotification {
   final String? soundName; //?
   final String? subtitle; //?
 
-  LocalNotification(
+  const LocalNotification(
       {required this.id,
       required this.title,
       required this.content,
@@ -360,7 +360,7 @@ class LocalNotification {
       this.extra,
       this.badge = 0,
       this.soundName,
-      this.subtitle})
+      this.subtitle});
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
