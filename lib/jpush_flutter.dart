@@ -351,7 +351,7 @@ class LocalNotification {
   final String? soundName; //?
   final String? subtitle; //?
 
-  const LocalNotification(
+  LocalNotification(
       {required this.id,
       required this.title,
       required this.content,
