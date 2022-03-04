@@ -345,13 +345,13 @@ class LocalNotification {
   final int id;
   final String title;
   final String content;
-  final Map<String, String>? extra; //?
+  final Map<String, dynamic>? extra; //?
   final DateTime fireTime;
   final int? badge; //?
   final String? soundName; //?
   final String? subtitle; //?
 
-  LocalNotification(
+  const LocalNotification(
       {required this.id,
       required this.title,
       required this.content,
