@@ -345,7 +345,7 @@ class LocalNotification {
   final int id;
   final String title;
   final String content;
-  final Map<String, dynamic>? extra; //?
+  final Map<String, String>? extra; //?
   final DateTime fireTime;
   final int? badge; //?
   final String? soundName; //?
