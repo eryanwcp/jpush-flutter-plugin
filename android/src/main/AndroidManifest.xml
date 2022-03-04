@@ -16,7 +16,7 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name="com.jiguang.jpush.JPushEventReceiver" android:enabled="true" android:exported="false">>
+        <receiver android:name="com.jiguang.jpush.JPushEventReceiver" android:enabled="true" android:exported="false">
             <intent-filter>
                 <!--Required 用户注册 SDK 的 intent-->
                 <action android:name="cn.jpush.android.intent.REGISTRATION" />
