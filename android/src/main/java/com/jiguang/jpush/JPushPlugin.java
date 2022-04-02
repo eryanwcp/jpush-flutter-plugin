@@ -95,7 +95,6 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
             getAlias(call, result);
         } else if (call.method.equals("deleteAlias")) {
             deleteAlias(call, result);
-            ;
         } else if (call.method.equals("stopPush")) {
             stopPush(call, result);
         } else if (call.method.equals("resumePush")) {
