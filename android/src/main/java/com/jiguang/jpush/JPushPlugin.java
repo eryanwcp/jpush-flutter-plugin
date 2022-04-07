@@ -74,7 +74,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
 
     @Override
     public void onMethodCall(MethodCall call, Result result) {
-        Log.i(TAG, call.method);
+//        Log.i(TAG, call.method);
         if (call.method.equals("getPlatformVersion")) {
             result.success("Android " + android.os.Build.VERSION.RELEASE);
         } else if (call.method.equals("setup")) {
