@@ -403,7 +403,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
 
             if (action.equals(JPushInterface.ACTION_REGISTRATION_ID)) {
                 String rId = intent.getStringExtra(JPushInterface.EXTRA_REGISTRATION_ID);
-                Log.d("JPushPlugin", "on get registration");
+//                Log.d("JPushPlugin", "on get registration");
                 JPushPlugin.transmitReceiveRegistrationId(rId);
 
             } else if (action.equals(JPushInterface.ACTION_MESSAGE_RECEIVED)) {
@@ -416,7 +416,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
         }
 
         private void handlingMessageReceive(Intent intent) {
-            Log.d(TAG, "handlingMessageReceive " + intent.getAction());
+//            Log.d(TAG, "handlingMessageReceive " + intent.getAction());
 
             String msg = intent.getStringExtra(JPushInterface.EXTRA_MESSAGE);
             Map<String, Object> extras = getNotificationExtras(intent);
@@ -424,7 +424,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
         }
 
         private void handlingNotificationOpen(Context context, Intent intent) {
-            Log.d(TAG, "handlingNotificationOpen " + intent.getAction());
+//            Log.d(TAG, "handlingNotificationOpen " + intent.getAction());
 
             String title = intent.getStringExtra(JPushInterface.EXTRA_NOTIFICATION_TITLE);
             String alert = intent.getStringExtra(JPushInterface.EXTRA_ALERT);
@@ -440,7 +440,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
         }
 
         private void handlingNotificationReceive(Context context, Intent intent) {
-            Log.d(TAG, "handlingNotificationReceive " + intent.getAction());
+//            Log.d(TAG, "handlingNotificationReceive " + intent.getAction());
 
             String title = intent.getStringExtra(JPushInterface.EXTRA_NOTIFICATION_TITLE);
             String alert = intent.getStringExtra(JPushInterface.EXTRA_ALERT);
@@ -449,7 +449,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
         }
 
         private Map<String, Object> getNotificationExtras(Intent intent) {
-            Log.d(TAG, "");
+//            Log.d(TAG, "");
 
             Map<String, Object> extrasMap = new HashMap<String, Object>();
             for (String key : intent.getExtras().keySet()) {
@@ -467,7 +467,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
 
 
     static void transmitMessageReceive(String message, Map<String, Object> extras) {
-        Log.d(TAG, "transmitMessageReceive " + "message=" + message + "extras=" + extras);
+//        Log.d(TAG, "transmitMessageReceive " + "message=" + message + "extras=" + extras);
 
         if (instance == null) {
             return;
@@ -480,7 +480,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
     }
 
     static void transmitNotificationOpen(String title, String alert, Map<String, Object> extras) {
-        Log.d(TAG, "transmitNotificationOpen " + "title=" + title + "alert=" + alert + "extras=" + extras);
+//        Log.d(TAG, "transmitNotificationOpen " + "title=" + title + "alert=" + alert + "extras=" + extras);
 
         Map<String, Object> notification = new HashMap<>();
         notification.put("title", title);
@@ -502,7 +502,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
     }
 
     public static void onNotifyMessageUnShow( NotificationMessage notificationMessage) {
-        Log.e(TAG,"[onNotifyMessageUnShow] message:"+notificationMessage);
+//        Log.e(TAG,"[onNotifyMessageUnShow] message:"+notificationMessage);
         if (instance == null) {
             Log.d(TAG, "the instance is null");
             return;
@@ -549,7 +549,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
         return extras;
     }
     static void transmitNotificationReceive(String title, String alert, Map<String, Object> extras) {
-        Log.d(TAG, "transmitNotificationReceive " + "title=" + title + "alert=" + alert + "extras=" + extras);
+//        Log.d(TAG, "transmitNotificationReceive " + "title=" + title + "alert=" + alert + "extras=" + extras);
 
         if (instance == null) {
             return;
@@ -563,7 +563,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
     }
 
     static void transmitReceiveRegistrationId(String rId) {
-        Log.d(TAG, "transmitReceiveRegistrationId： " + rId);
+//        Log.d(TAG, "transmitReceiveRegistrationId： " + rId);
 
         if (instance == null) {
             return;
