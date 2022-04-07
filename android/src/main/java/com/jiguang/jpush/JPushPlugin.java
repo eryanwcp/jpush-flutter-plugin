@@ -136,7 +136,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
 
     // 主线程再返回数据
     public void runMainThread(final Map<String, Object> map, final Result result, final String method) {
-        Log.d(TAG, "runMainThread:" + "map = " + map + ",method =" + method);
+//        Log.d(TAG, "runMainThread:" + "map = " + map + ",method =" + method);
         android.os.Handler handler = new Handler(Looper.getMainLooper());
         handler.post(new Runnable() {
             @Override
@@ -155,7 +155,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
     }
 
     public void setup(MethodCall call, Result result) {
-        Log.d(TAG, "setup :" + call.arguments);
+//        Log.d(TAG, "setup :" + call.arguments);
 
         HashMap<String, Object> map = call.arguments();
         boolean debug = (boolean) map.get("debug");
@@ -173,7 +173,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
     }
 
     public void scheduleCache() {
-        Log.d(TAG, "scheduleCache:");
+//        Log.d(TAG, "scheduleCache:");
 
         List<Object> tempList = new ArrayList<Object>();
 
@@ -208,7 +208,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
     }
 
     public void setTags(MethodCall call, Result result) {
-        Log.d(TAG, "setTags：");
+//        Log.d(TAG, "setTags：");
 
         List<String> tagList = call.arguments();
         Set<String> tags = new HashSet<>(tagList);
@@ -218,25 +218,15 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
     }
 
     public void cleanTags(MethodCall call, Result result) {
-        Log.d(TAG, "cleanTags:");
+//        Log.d(TAG, "cleanTags:");
 
         sequence += 1;
         callbackMap.put(sequence, result);
         JPushInterface.cleanTags(context, sequence);
     }
 
-    public void addTags(MethodCall call, Result result) {
-        Log.d(TAG, "addTags: " + call.arguments);
-
-        List<String> tagList = call.arguments();
-        Set<String> tags = new HashSet<>(tagList);
-        sequence += 1;
-        callbackMap.put(sequence, result);
-        JPushInterface.addTags(context, sequence, tags);
-    }
-
     public void deleteTags(MethodCall call, Result result) {
-        Log.d(TAG, "deleteTags： " + call.arguments);
+//        Log.d(TAG, "deleteTags： " + call.arguments);
 
         List<String> tagList = call.arguments();
         Set<String> tags = new HashSet<>(tagList);
@@ -246,14 +236,14 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
     }
 
     public void getAllTags(MethodCall call, Result result) {
-        Log.d(TAG, "getAllTags： ");
+//        Log.d(TAG, "getAllTags： ");
 
         sequence += 1;
         callbackMap.put(sequence, result);
         JPushInterface.getAllTags(context, sequence);
     }
     public void getAlias(MethodCall call, Result result) {
-        Log.d(TAG, "getAlias： ");
+//        Log.d(TAG, "getAlias： ");
 
         sequence += 1;
         callbackMap.put(sequence, result);
@@ -261,7 +251,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
     }
 
     public void setAlias(MethodCall call, Result result) {
-        Log.d(TAG, "setAlias: " + call.arguments);
+//        Log.d(TAG, "setAlias: " + call.arguments);
 
         String alias = call.arguments();
         sequence += 1;
@@ -270,7 +260,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
     }
 
     public void deleteAlias(MethodCall call, Result result) {
-        Log.d(TAG, "deleteAlias:");
+//        Log.d(TAG, "deleteAlias:");
 
         String alias = call.arguments();
         sequence += 1;
@@ -279,25 +269,25 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
     }
 
     public void stopPush(MethodCall call, Result result) {
-        Log.d(TAG, "stopPush:");
+//        Log.d(TAG, "stopPush:");
 
         JPushInterface.stopPush(context);
     }
 
     public void resumePush(MethodCall call, Result result) {
-        Log.d(TAG, "resumePush:");
+//        Log.d(TAG, "resumePush:");
 
         JPushInterface.resumePush(context);
     }
 
     public void clearAllNotifications(MethodCall call, Result result) {
-        Log.d(TAG, "clearAllNotifications: ");
+//        Log.d(TAG, "clearAllNotifications: ");
 
         JPushInterface.clearAllNotifications(context);
     }
 
     public void clearNotification(MethodCall call, Result result) {
-        Log.d(TAG, "clearNotification: ");
+//        Log.d(TAG, "clearNotification: ");
         Object id = call.arguments;
         if (id != null) {
             JPushInterface.clearNotificationById(context, (int) id);
@@ -305,13 +295,13 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
     }
 
     public void getLaunchAppNotification(MethodCall call, Result result) {
-        Log.d(TAG, "");
+//        Log.d(TAG, "");
 
 
     }
 
     public void getRegistrationID(MethodCall call, Result result) {
-        Log.d(TAG, "getRegistrationID: ");
+//        Log.d(TAG, "getRegistrationID: ");
 
         if (context == null) {
             Log.d(TAG, "register context is nil.");
@@ -328,7 +318,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
 
 
     public void sendLocalNotification(MethodCall call, Result result) {
-        Log.d(TAG, "sendLocalNotification: " + call.arguments);
+//        Log.d(TAG, "sendLocalNotification: " + call.arguments);
 
         try {
             HashMap<String, Object> map = call.arguments();
@@ -355,7 +345,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
     }
 
     public void setBadge(MethodCall call, Result result) {
-        Log.d(TAG, "setBadge: " + call.arguments);
+//        Log.d(TAG, "setBadge: " + call.arguments);
 
         HashMap<String, Object> map = call.arguments();
         Object numObject = map.get("badge");
@@ -368,7 +358,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
 
     /// 检查当前应用的通知开关是否开启
     private void isNotificationEnabled(MethodCall call, Result result) {
-        Log.d(TAG, "isNotificationEnabled: ");
+//        Log.d(TAG, "isNotificationEnabled: ");
         int isEnabled = JPushInterface.isNotificationEnabled(context);
         //1表示开启，0表示关闭，-1表示检测失败
         HashMap<String, Object> map = new HashMap();
@@ -378,7 +368,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
     }
 
     private void openSettingsForNotification(MethodCall call, Result result) {
-        Log.d(TAG, "openSettingsForNotification: ");
+//        Log.d(TAG, "openSettingsForNotification: ");
 
         JPushInterface.goToAppNotificationSettings(context);
 
