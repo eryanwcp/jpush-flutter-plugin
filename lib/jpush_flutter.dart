@@ -75,7 +75,7 @@ class JPush {
   }
 
   Future<dynamic> _handleMethod(MethodCall call) async {
-    print(flutter_log + "_handleMethod:");
+    // print(flutter_log + "_handleMethod:");
 
     switch (call.method) {
       case "onReceiveNotification":
