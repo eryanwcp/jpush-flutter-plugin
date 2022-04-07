@@ -225,6 +225,16 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
         JPushInterface.cleanTags(context, sequence);
     }
 
+    public void addTags(MethodCall call, Result result) {
+//        Log.d(TAG, "addTags: " + call.arguments);
+
+        List<String> tagList = call.arguments();
+        Set<String> tags = new HashSet<>(tagList);
+        sequence += 1;
+        callbackMap.put(sequence, result);
+        JPushInterface.addTags(context, sequence, tags);
+    }
+
     public void deleteTags(MethodCall call, Result result) {
 //        Log.d(TAG, "deleteTags： " + call.arguments);
 
