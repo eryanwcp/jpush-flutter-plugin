@@ -1,3 +1,8 @@
+## 2.3.4
++ 升级：升级 Android JPush 4.7.2
+       升级 Android JCore 3.3.0
+## 2.3.3
++ 升级：升级 Android JPush 4.7.0
 ## 2.3.2
 + 新增：修复setAuth()方法问题
 ## 2.3.1
