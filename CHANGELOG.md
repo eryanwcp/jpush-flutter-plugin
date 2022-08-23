@@ -1,3 +1,7 @@
+## 2.3.6
++ 新增：修复崩溃问题
+## 2.3.5
++ 新增：iOS新增getAlias接口实现
 ## 2.3.4
 + 升级：升级 Android JPush 4.7.2
        升级 Android JCore 3.3.0

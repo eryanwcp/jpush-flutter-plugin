@@ -190,7 +190,9 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
 
     public void scheduleCache() {
 //        Log.d(TAG, "scheduleCache:");
-
+        if(JPushPlugin.instance==null||JPushPlugin.instance.channel==null){
+            return;
+        }
         List<Object> tempList = new ArrayList<Object>();
 
         if (dartIsReady) {
@@ -458,15 +460,14 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
         }
 
         private Map<String, Object> getNotificationExtras(Intent intent) {
-//            Log.d(TAG, "");
-
             Map<String, Object> extrasMap = new HashMap<String, Object>();
-            for (String key : intent.getExtras().keySet()) {
+            Bundle extras = intent.getExtras();
+            for (String key : extras.keySet()) {
                 if (!IGNORED_EXTRAS_KEYS.contains(key)) {
                     if (key.equals(JPushInterface.EXTRA_NOTIFICATION_ID)) {
                         extrasMap.put(key, intent.getIntExtra(key, 0));
                     } else {
-                        extrasMap.put(key, intent.getStringExtra(key));
+                        extrasMap.put(key, extras.get(key));
                     }
                 }
             }
@@ -478,7 +479,8 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
     static void transmitMessageReceive(String message, Map<String, Object> extras) {
 //        Log.d(TAG, "transmitMessageReceive " + "message=" + message + "extras=" + extras);
 
-        if (instance == null) {
+        if (instance == null||instance.channel==null) {
+            Log.d("JPushPlugin", "the instance is null");
             return;
         }
         Map<String, Object> msg = new HashMap<>();
@@ -497,7 +499,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
         notification.put("extras", extras);
         JPushPlugin.openNotificationCache.add(notification);
 
-        if (instance == null) {
+        if (instance == null||instance.channel==null) {
             Log.d("JPushPlugin", "the instance is null");
             return;
         }
@@ -512,8 +514,8 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
 
     public static void onNotifyMessageUnShow( NotificationMessage notificationMessage) {
 //        Log.e(TAG,"[onNotifyMessageUnShow] message:"+notificationMessage);
-        if (instance == null) {
-            Log.d(TAG, "the instance is null");
+        if (instance == null||instance.channel==null) {
+            Log.d("JPushPlugin", "the instance is null");
             return;
         }
         Map<String, Object> notification= new HashMap<>();
@@ -560,7 +562,8 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
     static void transmitNotificationReceive(String title, String alert, Map<String, Object> extras) {
 //        Log.d(TAG, "transmitNotificationReceive " + "title=" + title + "alert=" + alert + "extras=" + extras);
 
-        if (instance == null) {
+        if (instance == null||instance.channel==null) {
+            Log.d("JPushPlugin", "the instance is null");
             return;
         }
 
