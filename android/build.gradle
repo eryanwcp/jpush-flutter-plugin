@@ -1,4 +1,3 @@
-group 'com.jiguang.jpush'
 version '1.0-SNAPSHOT'
 
 buildscript {
@@ -9,7 +8,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.2.2'
+        classpath 'com.android.tools.build:gradle:8.4.0'
     }
 }
 
@@ -24,6 +23,7 @@ rootProject.allprojects {
 apply plugin: 'com.android.library'
 
 android {
+    namespace 'com.jiguang.jpush'
     compileSdkVersion 30
 
     defaultConfig {
